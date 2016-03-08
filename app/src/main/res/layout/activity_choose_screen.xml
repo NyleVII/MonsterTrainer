@@ -34,9 +34,51 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Troll"
         android:id="@+id/button2"
         android:layout_below="@+id/button"
         android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignStart="@+id/button"
+        android:clickable="true"
+        android:onClick="ChooseTrollActivity"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ORC"
+        android:id="@+id/button3"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:onClick="ChooseOrcActivity"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GOBLIN"
+        android:id="@+id/button4"
+        android:layout_below="@+id/button3"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:onClick="ChooseGoblinActivity"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GREMLIN"
+        android:id="@+id/button5"
+        android:layout_below="@+id/button4"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:onClick="ChooseGremlinActivity"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IMP"
+        android:id="@+id/button6"
+        android:layout_below="@+id/button5"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:onClick="ChooseImpActivity"/>
 </RelativeLayout>

@@ -2,4 +2,5 @@
     <string name="app_name">Monster Trainer</string>
     <string name="choose">Choose your monster!</string>
     <string name="ogre">Ogre</string>
+    <string name="Troll">TROLL</string>
 </resources>

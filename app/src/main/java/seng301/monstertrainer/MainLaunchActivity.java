@@ -32,6 +32,31 @@ public class MainLaunchActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void ChooseTrollActivity(View view) {
+        Intent intent = new Intent(this, ChooseTrollActivity.class);
+        startActivity(intent);
+    }
+
+    public void ChooseOrcActivity(View view) {
+        Intent intent = new Intent(this, ChooseOrcActivity.class);
+        startActivity(intent);
+    }
+
+    public void ChooseGoblinActivity(View view) {
+        Intent intent = new Intent(this, ChooseGoblinActivity.class);
+        startActivity(intent);
+    }
+
+    public void ChooseGremlinActivity(View view) {
+        Intent intent = new Intent(this, ChooseGremlinActivity.class);
+        startActivity(intent);
+    }
+
+    public void ChooseImpActivity(View view) {
+        Intent intent = new Intent(this, ChooseImpActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onStart() {
         super.onStart();

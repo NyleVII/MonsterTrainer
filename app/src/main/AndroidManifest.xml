@@ -15,17 +15,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="ChooseOgreActivity"
+            android:name=".ChooseOgreActivity"
             android:label="@string/app_name"
-            android:parentActivityName="MainLaunchActivity">
-        </activity>
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+            android:parentActivityName=".MainLaunchActivity" />
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".ChooseTrollActivity" />
+        <activity android:name=".ChooseOrcActivity" />
+        <activity android:name=".ChooseGoblinActivity" />
+        <activity android:name=".ChooseGremlinActivity" />
+        <activity android:name=".ChooseImpActivity"></activity>
     </application>
 
 </manifest>
