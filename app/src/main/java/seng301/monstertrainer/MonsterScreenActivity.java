@@ -1,16 +1,14 @@
 package seng301.monstertrainer;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class ChooseOgreActivity extends AppCompatActivity {
+public class MonsterScreenActivity extends AppCompatActivity {
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -21,12 +19,11 @@ public class ChooseOgreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_ogre);
+        setContentView(R.layout.activity_monster_screen);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
-
 
     @Override
     public void onStart() {
@@ -37,7 +34,7 @@ public class ChooseOgreActivity extends AppCompatActivity {
         client.connect();
         Action viewAction = Action.newAction(
                 Action.TYPE_VIEW, // TODO: choose an action type.
-                "ChooseOgre Page", // TODO: Define a title for the content shown.
+                "MonsterScreen Page", // TODO: Define a title for the content shown.
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
@@ -56,7 +53,7 @@ public class ChooseOgreActivity extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         Action viewAction = Action.newAction(
                 Action.TYPE_VIEW, // TODO: choose an action type.
-                "ChooseOgre Page", // TODO: Define a title for the content shown.
+                "MonsterScreen Page", // TODO: Define a title for the content shown.
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
@@ -66,11 +63,5 @@ public class ChooseOgreActivity extends AppCompatActivity {
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
-    }
-
-    public void pickOgre(View view) {
-        MainLaunchActivity.monster.setMonsterType("Ogre");
-        Intent intent = new Intent(this, MonsterScreenActivity.class);
-        startActivity(intent);
     }
 }

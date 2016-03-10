@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.gms.appindexing.Action;
@@ -18,10 +19,19 @@ public class MainLaunchActivity extends AppCompatActivity {
      */
     private GoogleApiClient client;
 
+    public static Monster monster = new Monster(); //Default constructor, setting monster to null
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_screen);
+
+        if(monster.getMonsterType() == null) {
+            setContentView(R.layout.activity_choose_screen);
+        }
+        else {
+            Intent intent = new Intent(this, MonsterScreenActivity.class);
+            startActivity(intent);
+        }
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -96,4 +106,5 @@ public class MainLaunchActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
     }
+
 }

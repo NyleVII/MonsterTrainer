@@ -31,7 +31,8 @@
         <activity android:name=".ChooseOrcActivity" />
         <activity android:name=".ChooseGoblinActivity" />
         <activity android:name=".ChooseGremlinActivity" />
-        <activity android:name=".ChooseImpActivity"></activity>
+        <activity android:name=".ChooseImpActivity" />
+        <activity android:name=".MonsterScreenActivity"></activity>
     </application>
 
 </manifest>
