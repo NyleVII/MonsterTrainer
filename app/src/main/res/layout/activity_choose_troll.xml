@@ -16,6 +16,23 @@
         android:text="Troll"
         android:id="@+id/textView3"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:src="@drawable/troll"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="91dp" />
+        android:id="@+id/imageView6" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm"
+        android:id="@+id/button7"
+        android:clickable="true"
+        android:onClick="pickTroll"
+        android:layout_below="@+id/imageView6"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

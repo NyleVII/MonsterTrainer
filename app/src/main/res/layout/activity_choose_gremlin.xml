@@ -16,6 +16,26 @@
         android:text="Gremlin"
         android:id="@+id/textView6"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:src="@drawable/gremlin"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="102dp" />
+        android:id="@+id/imageView4" />
+        //android:id="@+id/imageView"
+        //android:layout_centerVertical="true"
+        //android:layout_centerHorizontal="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm"
+        android:id="@+id/button7"
+        android:clickable="true"
+        android:onClick="pickGremlin"
+        android:layout_below="@+id/imageView4"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
 </RelativeLayout>

@@ -41,7 +41,7 @@ public class Monster {
         }
     }
 
-    public String getMonsterType() {
+    public static String getMonsterType() {
         return monsterType;
     }
     public int getHp() {

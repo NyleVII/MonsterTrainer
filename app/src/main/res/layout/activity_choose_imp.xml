@@ -15,7 +15,23 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Imp"
         android:id="@+id/textView5"
-        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:src="@drawable/imp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="98dp" />
+        android:id="@+id/imageView2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm"
+        android:id="@+id/button7"
+        android:clickable="true"
+        android:onClick="pickImp"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
