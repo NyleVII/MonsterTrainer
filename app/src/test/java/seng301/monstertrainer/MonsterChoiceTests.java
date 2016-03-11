@@ -3,40 +3,47 @@ package seng301.monstertrainer;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static seng301.monstertrainer.Monster.getMonsterType;
 
 /**
  * Some tests that can pass or fail
  */
 public class MonsterChoiceTests {
-
+    Monster m = new Monster();
     @Test
     public void chooseOgreTest() throws Exception {
-        assertEquals("OGRE","");
+        m.setMonsterType("OGRE");
+        assertEquals("OGRE", getMonsterType());
     }
 
     @Test
     public void chooseTrollTest() throws Exception {
-        assertEquals("TROLL","");
+        m.setMonsterType("");
+        assertEquals("TROLL", getMonsterType());
     }
 
     @Test
     public void chooseGoblinTest() throws Exception {
-        assertEquals("GOBLIN","");
+        m.setMonsterType("");
+        assertEquals("GOBLIN", getMonsterType());
     }
 
     @Test
     public void chooseImpTest() throws Exception {
-        assertEquals("IMP","");
+        m.setMonsterType("");
+        assertEquals("IMP", getMonsterType());
     }
 
     @Test
     public void chooseOrcTest() throws Exception {
-        assertEquals("ORC","");
+        m.setMonsterType("");
+        assertEquals("ORC", getMonsterType());
     }
 
     @Test
     public void chooseGremlinTest() throws Exception {
-        assertEquals("GREMLIN","");
+        m.setMonsterType("");
+        assertEquals("GREMLIN", getMonsterType());
     }
 
 }
