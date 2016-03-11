@@ -25,8 +25,33 @@ public class MainLaunchActivityTest {
     public ActivityTestRule<MainLaunchActivity> mActivityRule = new ActivityTestRule(MainLaunchActivity.class);
 
     @Test
-    public void ChooseOgreActivityTest() {
+    public void testChooseOgreActivityTest() throws Exception {
         onView(withText("Ogre")).perform(click());
+    }
+
+    @Test
+    public void testChooseOrcActivityTest() throws Exception {
+        onView(withText("Orc")).perform(click());
+    }
+
+    @Test
+    public void testChooseTrollActivityTest() throws Exception {
+        onView(withText("Troll")).perform(click());
+    }
+
+    @Test
+    public void testChooseImpActivityTest() throws Exception {
+        onView(withText("Imp")).perform(click());
+    }
+
+    @Test
+    public void testChooseGremlinActivityTest() throws Exception {
+        onView(withText("Gremlin")).perform(click());
+    }
+
+    @Test
+    public void testChooseGoblinActivityTest() throws Exception {
+        onView(withText("Goblin")).perform(click());
     }
 }
 
