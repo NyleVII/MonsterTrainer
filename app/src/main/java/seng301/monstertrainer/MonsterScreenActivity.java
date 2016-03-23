@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,7 +15,12 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.text.NumberFormat;
 
+import seng301.monstertrainer.Monster;
+
+import static seng301.monstertrainer.Monster.getHP;
+import static seng301.monstertrainer.Monster.getMaxHP;
 import static seng301.monstertrainer.Monster.getMonsterType;
+import static seng301.monstertrainer.Monster.*;
 
 public class MonsterScreenActivity extends AppCompatActivity {
 
@@ -28,16 +34,9 @@ public class MonsterScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monster_screen);
-        TextView chosenMonsterTextView = (TextView) findViewById(R.id.chosenMonsterTextView);
-        chosenMonsterTextView.setText(getMonsterType());
 
-        ImageView chosenMonsterImage = (ImageView) findViewById(R.id.chosenMonsterImage);
-        //int monsterImageID = getResources().getIdentifier("seng301.monstertrainer:drawable/" + getMonsterType(), null, null);
-        //chosenMonsterImage.setImageResource(monsterImageID);
-
-        Resources res = getResources();
-        int resourceID = res.getIdentifier(getMonsterType(), "drawable",getPackageName());
-        chosenMonsterImage.setImageResource(resourceID);
+        //Gets new values for the MonsterScreenActivity
+        updateDisplay();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -82,5 +81,81 @@ public class MonsterScreenActivity extends AppCompatActivity {
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
+    }
+
+    public void updateDisplay() {
+        //Update monster image
+        ImageView chosenMonsterImage = (ImageView) findViewById(R.id.chosenMonsterImage);
+        Resources res = getResources();
+        int resourceID = res.getIdentifier(getMonsterType(), "drawable",getPackageName());
+        chosenMonsterImage.setImageResource(resourceID);
+
+        //Update monster type text
+        TextView chosenMonsterTextView = (TextView) findViewById(R.id.chosenMonsterTextView);
+        chosenMonsterTextView.setText(getMonsterType());
+
+        //Update monster HP
+        TextView monsterHPTextView = (TextView) findViewById(R.id.monsterHPTextView);
+        monsterHPTextView.setText("HP: " + getHP() + "/" + getMaxHP());
+
+        //Update monster stamina
+        TextView monsterStaminaTextView = (TextView) findViewById(R.id.monsterStaminaTextView);
+        monsterStaminaTextView.setText("Stamina: " + getStamina() + "/" + getMaxStamina());
+
+        //Update monster hunger
+        TextView monsterHungerTextView = (TextView) findViewById(R.id.monsterHungerTextView);
+        monsterHungerTextView.setText("Hunger: " + getHunger());
+
+        //Update monster loyalty
+        TextView monsterLoyaltyTextView = (TextView) findViewById(R.id.monsterLoyaltyTextView);
+        monsterLoyaltyTextView.setText("Loyalty: " + getLoyalty());
+    }
+
+    public void feed(View view){
+        int currentHunger = getHunger();
+        currentHunger -= 10;
+        if(currentHunger > 0)
+            setHunger(currentHunger);
+        else
+            setHunger(0);
+
+        //You fed him so up his loyalty
+        setLoyalty(getLoyalty() + 1);
+
+        //Update the display
+        updateDisplay();
+    }
+
+    public void train(View view){
+        //Make the monster hungry!
+        setHunger(getHunger()+10);
+
+        //Do some damage to his HP
+        setHp(getHP() - 1);
+        if(getHP() <= 0)
+            setHp(0);
+
+        //Make him tired
+        setStamina(getStamina() - 2);
+        if(getStamina() <= 0)
+            setStamina(0);
+
+        //Update the display
+        updateDisplay();
+    }
+
+    public void rest(View view){
+        //HP goes up
+        setHp(getHP() + 1);
+        if(getHP() > getMaxHP())
+            setHp(getMaxHP());
+
+        //Stamina goes up
+        setStamina(getStamina() + 2);
+        if(getStamina() > getMaxStamina())
+            setStamina(getMaxStamina());
+
+        //updateDisplay
+        updateDisplay();
     }
 }

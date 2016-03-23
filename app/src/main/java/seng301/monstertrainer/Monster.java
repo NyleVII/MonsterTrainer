@@ -4,12 +4,12 @@ package seng301.monstertrainer;
 
 public class Monster {
     private static String monsterType = null;
-    private int hp  =   1;
-    private int maxHp = 1;
-    private int stamina = 1;
-    private int maxStamina = 1;
-    private int loyalty = 1;
-    private int hunger = 1;
+    private static int hp  =   10;
+    private static int maxHP = 10;
+    private static int stamina = 15;
+    private static int maxStamina = 15;
+    private static int loyalty = 0;
+    private static int hunger = 0;
 
     //Constructor(s)z
     public Monster(){
@@ -42,17 +42,49 @@ public class Monster {
     }
 
     public static String getMonsterType() { return monsterType; }
-    public int getHp() {
+    public static int getHP() {
         return hp;
     }
-    public int getStamina() {
+    public static int getMaxHP() {return maxHP;}
+    public static int getStamina() {
         return stamina;
     }
-    public int getLoyalty() {
+    public static int getMaxStamina() {
+        return maxStamina;
+    }
+    public static int getLoyalty() {
         return loyalty;
+    }
+
+    public static int getHunger() {
+        return hunger;
     }
 
     public void setMonsterType(String newMonsterType) {
         monsterType = newMonsterType;
+    }
+
+    public static void setHunger(int hunger) {
+        Monster.hunger = hunger;
+    }
+
+    public static void setHp(int hp) {
+        Monster.hp = hp;
+    }
+
+    public static void setLoyalty(int loyalty) {
+        Monster.loyalty = loyalty;
+    }
+
+    public static void setMaxHP(int maxHP) {
+        Monster.maxHP = maxHP;
+    }
+
+    public static void setMaxStamina(int maxStamina) {
+        Monster.maxStamina = maxStamina;
+    }
+
+    public static void setStamina(int stamina) {
+        Monster.stamina = stamina;
     }
 }

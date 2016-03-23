@@ -31,6 +31,8 @@
             android:layout_height="wrap_content"
             android:text="Feed"
             android:id="@+id/Feed"
+            android:clickable="true"
+            android:onClick="feed"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -40,9 +42,21 @@
             android:layout_height="wrap_content"
             android:text="Train"
             android:id="@+id/button8"
+            android:clickable="true"
+            android:onClick="train"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rest"
+            android:id="@+id/RestButton"
+            android:clickable="true"
+            android:onClick="rest"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 
@@ -60,7 +74,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="HP: "
-        android:id="@+id/monsterHP"
+        android:id="@+id/monsterHPTextView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -70,8 +84,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Stamina:"
-        android:id="@+id/monsterStamina"
-        android:layout_below="@+id/monsterHP"
+        android:id="@+id/monsterStaminaTextView"
+        android:layout_below="@+id/monsterHPTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -80,7 +94,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Hunger:"
-        android:id="@+id/monsterHunger"
+        android:id="@+id/monsterHungerTextView"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -90,8 +104,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Loyalty:"
-        android:id="@+id/monsterLoyalty"
-        android:layout_below="@+id/monsterHunger"
-        android:layout_alignLeft="@+id/monsterHunger"
-        android:layout_alignStart="@+id/monsterHunger" />
+        android:id="@+id/monsterLoyaltyTextView"
+        android:layout_below="@+id/monsterHungerTextView"
+        android:layout_alignLeft="@+id/monsterHungerTextView"
+        android:layout_alignStart="@+id/monsterHungerTextView" />
 </RelativeLayout>
