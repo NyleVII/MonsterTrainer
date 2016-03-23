@@ -3,10 +3,13 @@ package seng301.monstertrainer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import java.text.NumberFormat;
 
 public class MonsterScreenActivity extends AppCompatActivity {
 
@@ -20,6 +23,8 @@ public class MonsterScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monster_screen);
+        TextView chosenMonsterTextView = (TextView) findViewById(R.id.chosenMonsterTextView);
+        chosenMonsterTextView.setText(seng301.monstertrainer.Monster.getMonsterType());
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();

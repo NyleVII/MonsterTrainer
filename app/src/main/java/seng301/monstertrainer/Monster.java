@@ -1,17 +1,17 @@
 package seng301.monstertrainer;
 
-/**
- * Created by Nyle on 10-Mar-2016.
- */
 
 
 public class Monster {
     private static String monsterType = null;
     private int hp  =   1;
+    private int maxHp = 1;
     private int stamina = 1;
+    private int maxStamina = 1;
     private int loyalty = 1;
+    private int hunger = 1;
 
-    //Constructor(s)
+    //Constructor(s)z
     public Monster(){
         //Empty constructor
     }
@@ -41,9 +41,7 @@ public class Monster {
         }
     }
 
-    public static String getMonsterType() {
-        return monsterType;
-    }
+    public static String getMonsterType() { return monsterType; }
     public int getHp() {
         return hp;
     }
