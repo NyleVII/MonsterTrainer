@@ -18,22 +18,22 @@ public class Monster {
     public Monster(String desiredType){
         switch (desiredType) {
             case "Ogre":
-                monsterType = "Ogre";
+                monsterType = "ogre";
                 break;
             case "Troll":
-                monsterType = "Troll";
+                monsterType = "troll";
                 break;
             case "Orc":
-                monsterType = "Orc";
+                monsterType = "orc";
                 break;
             case "Goblin":
-                monsterType = "Goblin";
+                monsterType = "goblin";
                 break;
             case "Gremlin":
-                monsterType = "Gremlin";
+                monsterType = "gremlin";
                 break;
             case "Imp":
-                monsterType = "Imp";
+                monsterType = "imp";
                 break;
             default:
                 monsterType = "ERROR";

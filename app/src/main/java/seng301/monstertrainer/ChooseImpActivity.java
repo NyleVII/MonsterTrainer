@@ -13,7 +13,7 @@ public class ChooseImpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choose_imp);
     }
     public void pickImp(View view) {
-        MainLaunchActivity.monster.setMonsterType("Imp");
+        MainLaunchActivity.monster.setMonsterType("imp");
         Intent intent = new Intent(this, MonsterScreenActivity.class);
         startActivity(intent);
     }

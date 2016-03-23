@@ -14,7 +14,7 @@ public class ChooseTrollActivity extends AppCompatActivity {
     }
 
     public void pickTroll(View view) {
-        MainLaunchActivity.monster.setMonsterType("Troll");
+        MainLaunchActivity.monster.setMonsterType("troll");
         Intent intent = new Intent(this, MonsterScreenActivity.class);
         startActivity(intent);
     }

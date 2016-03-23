@@ -14,7 +14,7 @@ public class ChooseGoblinActivity extends AppCompatActivity {
     }
 
     public void pickGoblin(View view) {
-        MainLaunchActivity.monster.setMonsterType("Goblin");
+        MainLaunchActivity.monster.setMonsterType("goblin");
         Intent intent = new Intent(this, MonsterScreenActivity.class);
         startActivity(intent);
     }

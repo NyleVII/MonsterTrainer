@@ -14,7 +14,7 @@ public class ChooseOrcActivity extends AppCompatActivity {
     }
 
     public void pickOrc(View view) {
-        MainLaunchActivity.monster.setMonsterType("Orc");
+        MainLaunchActivity.monster.setMonsterType("orc");
         Intent intent = new Intent(this, MonsterScreenActivity.class);
         startActivity(intent);
     }

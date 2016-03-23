@@ -70,7 +70,7 @@ public class ChooseOgreActivity extends AppCompatActivity {
     }
 
     public void pickOgre(View view) {
-        MainLaunchActivity.monster.setMonsterType("Ogre");
+        MainLaunchActivity.monster.setMonsterType("ogre");
         Intent intent = new Intent(this, MonsterScreenActivity.class);
         startActivity(intent);
     }

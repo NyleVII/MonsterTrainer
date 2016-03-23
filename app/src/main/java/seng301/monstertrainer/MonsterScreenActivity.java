@@ -1,8 +1,11 @@
 package seng301.monstertrainer;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
@@ -10,6 +13,8 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.text.NumberFormat;
+
+import static seng301.monstertrainer.Monster.getMonsterType;
 
 public class MonsterScreenActivity extends AppCompatActivity {
 
@@ -24,7 +29,16 @@ public class MonsterScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monster_screen);
         TextView chosenMonsterTextView = (TextView) findViewById(R.id.chosenMonsterTextView);
-        chosenMonsterTextView.setText(seng301.monstertrainer.Monster.getMonsterType());
+        chosenMonsterTextView.setText(getMonsterType());
+
+        ImageView chosenMonsterImage = (ImageView) findViewById(R.id.chosenMonsterImage);
+        //int monsterImageID = getResources().getIdentifier("seng301.monstertrainer:drawable/" + getMonsterType(), null, null);
+        //chosenMonsterImage.setImageResource(monsterImageID);
+
+        Resources res = getResources();
+        int resourceID = res.getIdentifier(getMonsterType(), "drawable",getPackageName());
+        chosenMonsterImage.setImageResource(resourceID);
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();

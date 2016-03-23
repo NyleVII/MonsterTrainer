@@ -14,7 +14,7 @@ public class ChooseGremlinActivity extends AppCompatActivity {
     }
 
     public void pickGremlin(View view) {
-        MainLaunchActivity.monster.setMonsterType("Gremlin");
+        MainLaunchActivity.monster.setMonsterType("gremlin");
         Intent intent = new Intent(this, MonsterScreenActivity.class);
         startActivity(intent);
     }
