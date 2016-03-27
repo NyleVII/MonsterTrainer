@@ -143,9 +143,23 @@ public class MonsterScreenActivity extends AppCompatActivity {
     }
 
     public void train(View view){
+        if(getHP() <= 0){
+            TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+            systemMessageTextView.setText("Rest to regain HP!");
+            updateDisplay();
+            return;
+        }
+
+        if(getStamina() <= 0){
+            TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+            systemMessageTextView.setText("Rest to regain Stamina!");
+            updateDisplay();
+            return;
+        }
+
         //Make the monster hungry!
         setHunger(getHunger() + 10);
-        if(getHunger() >= 100 && (getHP() != 0 || getStamina() != 0)){
+        if(getHunger() >= 100){
             setHunger(100);
             TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
             systemMessageTextView.setText("Your monster is too hungry to train!");

@@ -32,7 +32,7 @@ public class TitleScreenActivity extends AppCompatActivity {
         setMaxHP(10);
         setStamina(15);
         setMaxStamina(15);
-        setHunger(20);
+        setHunger(0);
         setLoyalty(0);
         setLevel(1);
         setExp(0);

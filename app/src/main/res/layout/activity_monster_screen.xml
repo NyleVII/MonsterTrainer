@@ -122,9 +122,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Hunger:"
         android:id="@+id/monsterHungerTextView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_above="@+id/monsterStaminaTextView"
+        android:layout_alignRight="@+id/relativeLayout"
+        android:layout_alignEnd="@+id/relativeLayout" />
 
     <TextView
         android:layout_width="wrap_content"
