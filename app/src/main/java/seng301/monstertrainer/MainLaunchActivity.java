@@ -11,6 +11,8 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import static seng301.monstertrainer.Monster.getMonsterType;
+
 public class MainLaunchActivity extends AppCompatActivity {
 
     /**
@@ -25,8 +27,11 @@ public class MainLaunchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(monster.getMonsterType() == null) {
-            setContentView(R.layout.activity_choose_screen);
+        if(getMonsterType() == null) {
+            //setContentView(R.layout.activity_choose_screen);
+            //setContentView(R.layout.activity_title_screen);
+            Intent intent = new Intent(this, TitleScreenActivity.class);
+            startActivity(intent);
         }
         else {
             Intent intent = new Intent(this, MonsterScreenActivity.class);

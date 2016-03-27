@@ -1,5 +1,6 @@
 package seng301.monstertrainer;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -34,6 +35,8 @@ public class MonsterScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monster_screen);
+        TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+        systemMessageTextView.setText("");
 
         //Gets new values for the MonsterScreenActivity
         updateDisplay();
@@ -109,18 +112,31 @@ public class MonsterScreenActivity extends AppCompatActivity {
         //Update monster loyalty
         TextView monsterLoyaltyTextView = (TextView) findViewById(R.id.monsterLoyaltyTextView);
         monsterLoyaltyTextView.setText("Loyalty: " + getLoyalty());
+
+        //Update monster exp display
+        TextView monsterExpTextView = (TextView) findViewById(R.id.monsterEXPTextView);
+        monsterExpTextView.setText("EXP: " + getExp() + "/" + getMaxExp());
+
+        //Update monster level text
+        TextView monsterLevelTextView = (TextView) findViewById(R.id.monsterLevelTextView);
+        monsterLevelTextView.setText("Level: " + getLevel());
     }
 
     public void feed(View view){
         int currentHunger = getHunger();
         currentHunger -= 10;
-        if(currentHunger > 0)
+        if(currentHunger > 0){
             setHunger(currentHunger);
-        else
+            TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+            systemMessageTextView.setText("You fed your monster!");
+            //You fed him so up his loyalty
+            setLoyalty(getLoyalty() + 1);
+        }
+        else {
             setHunger(0);
-
-        //You fed him so up his loyalty
-        setLoyalty(getLoyalty() + 1);
+            TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+            systemMessageTextView.setText("Your monster is full!");
+        }
 
         //Update the display
         updateDisplay();
@@ -128,34 +144,103 @@ public class MonsterScreenActivity extends AppCompatActivity {
 
     public void train(View view){
         //Make the monster hungry!
-        setHunger(getHunger()+10);
+        setHunger(getHunger() + 10);
+        if(getHunger() >= 100 && (getHP() != 0 || getStamina() != 0)){
+            setHunger(100);
+            TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+            systemMessageTextView.setText("Your monster is too hungry to train!");
+            updateDisplay();
+            return;
+        }
 
         //Do some damage to his HP
         setHp(getHP() - 1);
-        if(getHP() <= 0)
+        if(getHP() <= 0) {
             setHp(0);
+            TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+            systemMessageTextView.setText("Rest to regain HP!");
+            updateDisplay();
+            return;
+        }
 
         //Make him tired
         setStamina(getStamina() - 2);
-        if(getStamina() <= 0)
+        if(getStamina() <= 0) {
             setStamina(0);
+            TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+            systemMessageTextView.setText("Rest to regain Stamina!");
+            updateDisplay();
+            return;
+        }
+
+
+
+        TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+        systemMessageTextView.setText("You gained exp!");
+        setExp(getExp() + 10);
+        TextView monsterExpTextView = (TextView) findViewById(R.id.monsterEXPTextView);
+        monsterExpTextView.setText("EXP: " + getExp() + "/" + getMaxExp());
+
+        //Level up!
+        if(getExp() >= getMaxExp()){
+            setExp(getExp() - getMaxExp()); //Resets exp to whatever it should be after you level up
+            setLevel(getLevel() + 1); //Increments your level!
+            //Update monster level text
+            TextView monsterLevelTextView = (TextView) findViewById(R.id.monsterLevelTextView);
+            monsterLevelTextView.setText("Level: " + getLevel());
+
+            //Reset EXP
+            setMaxExp((int) (getMaxExp() * 1.1));
+            //Set new EXP and max EXP
+            monsterExpTextView = (TextView) findViewById(R.id.monsterEXPTextView);
+            monsterExpTextView.setText("EXP: " + getExp() + "/" + getMaxExp());
+
+            //Level up system message
+            systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+            systemMessageTextView.setText("Your monster has reached level " + getLevel() + "!");
+
+            //Increase max stats!
+            setMaxHP((int) (getMaxHP() * 1.2));
+            setMaxStamina((int) (getMaxStamina() * 1.1));
+
+        }
 
         //Update the display
         updateDisplay();
     }
 
     public void rest(View view){
+        //Check if at max HP and Stamina
+        if((getHP() == getMaxHP() ) && (getStamina() == getMaxStamina() )){
+            TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+            systemMessageTextView.setText("Your monster is fully rested!");
+            updateDisplay();
+            return;
+        }
+
         //HP goes up
         setHp(getHP() + 1);
-        if(getHP() > getMaxHP())
+        if(getHP() > getMaxHP()) {
             setHp(getMaxHP());
+        }
 
         //Stamina goes up
         setStamina(getStamina() + 2);
-        if(getStamina() > getMaxStamina())
+        if(getStamina() > getMaxStamina()) {
             setStamina(getMaxStamina());
+        }
+        //System Message
+        TextView systemMessageTextView = (TextView) findViewById(R.id.systemMessageTextView);
+        systemMessageTextView.setText("Regained HP and Stamina!");
 
         //updateDisplay
         updateDisplay();
+    }
+
+    @Override
+    public void onBackPressed() {
+        //finish();
+        Intent intent = new Intent(this, TitleScreenActivity.class);
+        startActivity(intent);
     }
 }

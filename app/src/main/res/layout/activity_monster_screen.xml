@@ -13,18 +13,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp"
-        android:id="@+id/relativeLayout">
+        android:id="@+id/relativeLayout"
+        android:layout_below="@+id/monsterStaminaTextView">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/chosenMonsterImage"
+            android:src="@drawable/orc"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/orc"/>
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:layout_width="wrap_content"
@@ -58,16 +57,44 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
 
-    </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Level: 1"
+            android:id="@+id/monsterLevelTextView"
+            android:layout_below="@+id/chosenMonsterImage"
+            android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="chosenMonsterTextView"
-        android:id="@+id/chosenMonsterTextView"
-        android:layout_alignTop="@+id/relativeLayout"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="EXP: 0/100"
+            android:id="@+id/monsterEXPTextView"
+            android:layout_below="@+id/monsterLevelTextView"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="chosenMonsterTextView"
+            android:id="@+id/chosenMonsterTextView"
+            android:layout_above="@+id/chosenMonsterImage"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="systemMessageTextView"
+            android:id="@+id/systemMessageTextView"
+            android:layout_above="@+id/chosenMonsterTextView"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
